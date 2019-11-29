@@ -5,11 +5,13 @@
  */
 package lab7_rafaelflores;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Faith
  */
-public class Parada {
+public class Parada implements Serializable{
     private String nombre;
     private double distancia, angulo, cordX, cordY;
 

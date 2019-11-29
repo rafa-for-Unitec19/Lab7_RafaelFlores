@@ -5,11 +5,13 @@
  */
 package lab7_rafaelflores;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Faith
  */
-public class Estudiante {
+public class Estudiante implements Serializable{
     private String nombre;
     private int edad, cuenta;
     private Parada parada;
