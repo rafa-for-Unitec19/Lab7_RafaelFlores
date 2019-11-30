@@ -6,6 +6,7 @@
 package lab7_rafaelflores;
 
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -19,21 +20,24 @@ public class adminViaje extends Thread{
     private JTable tabla;
     private DefaultTableModel modelo;
     private ArrayList<Estudiante> pasajeros = new ArrayList();
+    private JLabel label;
     private final int  tiempo = 1000;
-    private float distancia, distanciaPorKm = 0;
+    private float distancia, distanciaPorKm;
     private boolean avanzar;
     private boolean vive;
     private Parada paradaActual;
     private Autobus bus;
     private int cordX, cordY;
 
-    public adminViaje(JProgressBar pgrViaje, JTable tabla, DefaultTableModel modelo, Autobus bus, int cordX, int cordY) {
+    public adminViaje(JProgressBar pgrViaje, JTable tabla, DefaultTableModel modelo, Autobus bus, int cordX, int cordY, JLabel label) {
         this.pgrViaje = pgrViaje;
         this.tabla = tabla;
         this.modelo = modelo;
         this.bus = bus;
         this.cordX = cordX;
         this.cordY = cordY;
+        this.label = label;
+        distanciaPorKm = 0;
         this.avanzar = true;
         this.vive = true;
     }
@@ -108,7 +112,7 @@ public class adminViaje extends Thread{
         return distancia;
     }
     
-    public double menorDistancia(){
+    public void menorDistancia(){
         double menor = pasajeros.get(0).getParada().getDistancia();
         for (int i = 1; i < pasajeros.size(); i++) {
             if (menor > pasajeros.get(i).getParada().getDistanciacordenada(cordX, cordY)) {
@@ -116,8 +120,13 @@ public class adminViaje extends Thread{
                 paradaActual = pasajeros.get(i).getParada();
             }
         }
+        if (pasajeros.isEmpty()) {
+            vive = false;
+        }else{
+            distancia = (float) menor * 1000;
+            this.label.setText(String.valueOf(distancia+" Metros"));
+        }
         
-        return menor;
     }
     
     private void reset() {
@@ -138,7 +147,7 @@ public class adminViaje extends Thread{
                 pasajeros.remove(pasajeros.get(i));
             }
         }
-        distancia = (float) menorDistancia();
+        menorDistancia();
         this.cordX = (int) paradaActual.getCordX();
         this.cordY = (int) paradaActual.getCordY();
     }
@@ -149,12 +158,13 @@ public class adminViaje extends Thread{
     
     @Override
     public void run(){
-        if (this.pgrViaje.getValue() == this.pgrViaje.getMaximum()) {
-            reset();
-        }
         while (vive) {            
+            if (this.pgrViaje.getValue() == this.pgrViaje.getMaximum()) {
+                reset();
+            }
             if (avanzar) {
-                this.distanciaPorKm += (int) Math.round(distancia / bus.getVelocidad());
+                System.out.println("Hola");
+                this.distanciaPorKm += (float) distancia * (bus.getVelocidad()*1000);
                 this.pgrViaje.setValue((int) this.distanciaPorKm);
                 this.pgrViaje.setString(
                         Integer.toString(
@@ -162,6 +172,10 @@ public class adminViaje extends Thread{
                         )
                         + "Kilometros"
                 );
+                System.out.println(bus);
+                System.out.println(bus.getVelocidad());
+                System.out.println(distancia);
+                System.out.println(pgrViaje.getValue());
             }//Fin If
             try {
                 Thread.sleep(tiempo);

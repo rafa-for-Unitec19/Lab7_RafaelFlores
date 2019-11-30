@@ -648,6 +648,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Detener Simulacion"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDetenerActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

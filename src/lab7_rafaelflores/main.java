@@ -401,6 +401,11 @@ public class main extends javax.swing.JFrame {
         btnPausar.setText("Pausar Simulacion");
 
         btnDetener.setText("Detener Simulacion");
+        btnDetener.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetenerActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Agregar");
 
@@ -510,6 +515,8 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        parArchivo.setListaParada(paradas);
+        parArchivo.escribirArchivo();
         System.exit(0);
     }//GEN-LAST:event_jMenu2MouseClicked
 
@@ -605,11 +612,21 @@ public class main extends javax.swing.JFrame {
     private void btnIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarMouseClicked
         this.alumnosEnAutoBus = (DefaultListModel) this.lstAlumnosEnAutobuses.getModel();
         if (!alumnosEnAutoBus.isEmpty()) {
-            this.hilo = new adminViaje(pgrViajes, tblBitacora, tabla, BusActual, 0, 0);
-            
+            this.hilo = new adminViaje(pgrViajes, tblBitacora, tabla, BusActual, 0, 0, this.lblTiempo);
+            hilo.setPasajeros(BusActual.getPasajeros());
+            hilo.menorDistancia();
+            this.cmbAutobuses.setEnabled(false);
+            this.btnAgregarEstudiante.setEnabled(false);
+            hilo.start();
         }
 
     }//GEN-LAST:event_btnIniciarMouseClicked
+
+    private void btnDetenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerActionPerformed
+        hilo.setVive(false);
+        this.cmbAutobuses.setEnabled(true);
+        this.btnAgregarEstudiante.setEnabled(true);
+    }//GEN-LAST:event_btnDetenerActionPerformed
 
     public void cargarAlumnosParadas(Autobus a){
         this.alumnosEnAutoBus = new DefaultListModel();
