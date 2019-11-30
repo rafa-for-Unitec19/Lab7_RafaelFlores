@@ -19,10 +19,11 @@ public class Estudiante implements Serializable{
     public Estudiante() {
     }
 
-    public Estudiante(String nombre, int edad, int cuenta) {
+    public Estudiante(String nombre, int edad, int cuenta, Parada parada) {
         this.nombre = nombre;
         this.edad = edad;
         this.cuenta = cuenta;
+        this.parada = parada;
     }
 
     public void setNombre(String nombre) {
@@ -59,7 +60,7 @@ public class Estudiante implements Serializable{
 
     @Override
     public String toString() {
-        return nombre + "vive en: " + parada;
+        return nombre +","+ edad +","+ cuenta +","+ parada;
     }
     
     

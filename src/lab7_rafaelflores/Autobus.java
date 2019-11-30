@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Faith
  */
 public class Autobus implements Serializable{
-    private int id;
+    private int identificacion;
     private String placa;
     private double velocidad;
     private Color color;
@@ -24,14 +24,14 @@ public class Autobus implements Serializable{
     }
 
     public Autobus(int id, String placa, double velocidad, Color color) {
-        this.id = id;
+        this.identificacion = id;
         this.placa = placa;
         this.velocidad = velocidad;
         this.color = color;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.identificacion = id;
     }
 
     public void setPlaca(String placa) {
@@ -49,9 +49,13 @@ public class Autobus implements Serializable{
     public void setPasajeros(ArrayList<Estudiante> pasajeros) {
         this.pasajeros = pasajeros;
     }
+    
+    public void setPasajero(Estudiante e){
+        this.pasajeros.add(e);
+    }
 
-    public int getId() {
-        return id;
+    public int getIdentificacion() {
+        return identificacion;
     }
 
     public String getPlaca() {
@@ -69,11 +73,10 @@ public class Autobus implements Serializable{
     public ArrayList<Estudiante> getPasajeros() {
         return pasajeros;
     }
-
+    
     @Override
     public String toString() {
-        return String.valueOf(id);
+        return String.valueOf(identificacion) +","+ placa +","+ velocidad;
     }
-    
     
 }

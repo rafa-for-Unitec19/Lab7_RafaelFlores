@@ -5,7 +5,13 @@
  */
 package lab7_rafaelflores;
 
+import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +24,20 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+        estArchivo.setListaEstudiante(estudiantes);
+        estArchivo.cargarArchivo();
+        autArchivo.setListaAutobus(autobuses);
+        autArchivo.cargarArchivo();
+        parArchivo.setListaParada(paradas);
+        parArchivo.cargarArchivo();
+        
+        estudiantes = estArchivo.getListaEstudiante();
+        autobuses = autArchivo.getListaAutobus();
+        paradas = parArchivo.getListaParada();
+        
+        cargarParadas();
+        cargarAutobuses();
+        cargarEstudiantes();
     }
 
     /**
@@ -29,44 +49,393 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jdEstudiante = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtNombreE = new javax.swing.JTextField();
+        spnEdad = new javax.swing.JSpinner();
+        spnCuenta = new javax.swing.JSpinner();
+        btnCrearEstudiante = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        lstParadas = new javax.swing.JList<>();
+        jdAutoBus = new javax.swing.JDialog();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        btnCrearAutobus = new javax.swing.JButton();
+        spnId = new javax.swing.JSpinner();
+        spnVelocidad = new javax.swing.JSpinner();
+        btnColor = new javax.swing.JButton();
+        txtPllaca = new javax.swing.JTextField();
+        jdParada = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txtNombreParada = new javax.swing.JTextField();
+        spnDistancia = new javax.swing.JSpinner();
+        spnAngulo = new javax.swing.JSpinner();
+        btnCrearParada = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblBitacora = new javax.swing.JTable();
+        cmbAutobuses = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstAlumnos = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lstAlumnosEnAutobuses = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
+        btnAgregarEstudiante = new javax.swing.JButton();
+        pgrViajes = new javax.swing.JProgressBar();
+        jLabel4 = new javax.swing.JLabel();
+        lblTiempo = new javax.swing.JLabel();
+        btnIniciar = new javax.swing.JButton();
+        btnPausar = new javax.swing.JButton();
+        btnDetener = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        itmAgregarE = new javax.swing.JMenuItem();
+        itmAgregarA = new javax.swing.JMenuItem();
+        itmAgregarP = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+
+        jLabel5.setText("Agregar Estudiantes");
+
+        jLabel6.setText("Nombre");
+
+        jLabel7.setText("Edad");
+
+        jLabel8.setText("Numero de Cuenta");
+
+        spnEdad.setModel(new javax.swing.SpinnerNumberModel(16, 16, 100, 1));
+
+        spnCuenta.setModel(new javax.swing.SpinnerNumberModel(31711111, 31711111, 99999999, 1));
+
+        btnCrearEstudiante.setText("Crear");
+        btnCrearEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearEstudianteMouseClicked(evt);
+            }
+        });
+
+        jLabel18.setText("Parada");
+
+        lstParadas.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(lstParadas);
+
+        javax.swing.GroupLayout jdEstudianteLayout = new javax.swing.GroupLayout(jdEstudiante.getContentPane());
+        jdEstudiante.getContentPane().setLayout(jdEstudianteLayout);
+        jdEstudianteLayout.setHorizontalGroup(
+            jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdEstudianteLayout.createSequentialGroup()
+                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdEstudianteLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jdEstudianteLayout.createSequentialGroup()
+                                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(79, 79, 79)
+                                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spnEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jdEstudianteLayout.createSequentialGroup()
+                                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel18))
+                                .addGap(18, 18, 18)
+                                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spnCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jdEstudianteLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel5))
+                    .addGroup(jdEstudianteLayout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(btnCrearEstudiante)))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        jdEstudianteLayout.setVerticalGroup(
+            jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdEstudianteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(txtNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(spnEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(spnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jdEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearEstudiante)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jLabel9.setText("Agregar Autobus");
+
+        jLabel10.setText("Identificacion");
+
+        jLabel11.setText("Placa");
+
+        jLabel12.setText("Velocidad");
+
+        jLabel13.setText("Color");
+
+        btnCrearAutobus.setText("Crear");
+        btnCrearAutobus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearAutobusMouseClicked(evt);
+            }
+        });
+
+        spnId.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
+
+        btnColor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnColorMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jdAutoBusLayout = new javax.swing.GroupLayout(jdAutoBus.getContentPane());
+        jdAutoBus.getContentPane().setLayout(jdAutoBusLayout);
+        jdAutoBusLayout.setHorizontalGroup(
+            jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdAutoBusLayout.createSequentialGroup()
+                .addGroup(jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdAutoBusLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9))
+                    .addGroup(jdAutoBusLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGap(37, 37, 37)
+                        .addGroup(jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnColor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCrearAutobus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(spnId, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(spnVelocidad)
+                            .addComponent(txtPllaca))))
+                .addContainerGap(160, Short.MAX_VALUE))
+        );
+        jdAutoBusLayout.setVerticalGroup(
+            jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdAutoBusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(spnId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtPllaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(spnVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jdAutoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(btnColor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearAutobus)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        jLabel14.setText("Agregar Parada");
+
+        jLabel15.setText("Nombre");
+
+        jLabel16.setText("Distancia");
+
+        jLabel17.setText("Angulo ");
+
+        spnDistancia.setModel(new javax.swing.SpinnerNumberModel(0.1d, 0.1d, null, 1.0d));
+
+        spnAngulo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 360, 1));
+
+        btnCrearParada.setText("Crear");
+        btnCrearParada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearParadaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jdParadaLayout = new javax.swing.GroupLayout(jdParada.getContentPane());
+        jdParada.getContentPane().setLayout(jdParadaLayout);
+        jdParadaLayout.setHorizontalGroup(
+            jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdParadaLayout.createSequentialGroup()
+                .addGroup(jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdParadaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14))
+                    .addGroup(jdParadaLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jdParadaLayout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNombreParada))
+                            .addGroup(jdParadaLayout.createSequentialGroup()
+                                .addGroup(jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(spnDistancia, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                    .addComponent(spnAngulo)))))
+                    .addGroup(jdParadaLayout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(btnCrearParada)))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        jdParadaLayout.setVerticalGroup(
+            jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdParadaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtNombreParada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(spnDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jdParadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(spnAngulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearParada)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblBitacora.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Parada", "Tiempo", "Estudiantes"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblBitacora);
+
+        cmbAutobuses.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbAutobusesItemStateChanged(evt);
+            }
+        });
+
+        lstAlumnos.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(lstAlumnos);
+
+        jLabel1.setText("Autobuses");
+
+        jLabel2.setText("Estudiantes");
+
+        lstAlumnosEnAutobuses.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(lstAlumnosEnAutobuses);
+
+        jLabel3.setText("Estudiantes en Autobus");
+
+        btnAgregarEstudiante.setText("Agregar");
+        btnAgregarEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarEstudianteMouseClicked(evt);
+            }
+        });
+
+        jLabel4.setText("Transcurso");
+
+        lblTiempo.setText("jLabel5");
+
+        btnIniciar.setText("Iniciar Simulacion");
+        btnIniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnIniciarMouseClicked(evt);
+            }
+        });
+
+        btnPausar.setText("Pausar Simulacion");
+
+        btnDetener.setText("Detener Simulacion");
 
         jMenu1.setText("Agregar");
 
-        jMenuItem1.setText("Agregar Estudiante");
-        jMenu1.add(jMenuItem1);
+        itmAgregarE.setText("Agregar Estudiante");
+        itmAgregarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmAgregarEActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmAgregarE);
 
-        jMenuItem2.setText("Agregar Autobus");
-        jMenu1.add(jMenuItem2);
+        itmAgregarA.setText("Agregar Autobus");
+        itmAgregarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmAgregarAActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmAgregarA);
 
-        jMenuItem3.setText("Agregar Parada");
-        jMenu1.add(jMenuItem3);
+        itmAgregarP.setText("Agregar Parada");
+        itmAgregarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmAgregarPActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmAgregarP);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salir");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -77,20 +446,207 @@ public class main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pgrViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTiempo))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(543, 543, 543)
+                            .addComponent(jLabel3))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnAgregarEstudiante)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(btnIniciar)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnPausar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnDetener)))
+                    .addComponent(cmbAutobuses, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cmbAutobuses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnAgregarEstudiante))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIniciar)
+                    .addComponent(btnPausar)
+                    .addComponent(btnDetener))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pgrViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void btnColorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnColorMouseClicked
+        this.btnColor.setBackground(JColorChooser.showDialog(this.jdAutoBus, "Escoja su Color", Color.yellow));
+    }//GEN-LAST:event_btnColorMouseClicked
+
+    private void btnCrearParadaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearParadaMouseClicked
+        if (!this.txtNombreParada.getText().equals("")) {
+            double rad = Double.parseDouble(this.spnAngulo.getValue().toString()) * (Math.PI /180);
+            Parada p = new Parada(this.txtNombreParada.getText(), Double.parseDouble(this.spnDistancia.getValue().toString()), rad);
+            paradas.add(p);
+            cargarParadas();
+            this.parArchivo.setListaParada(paradas);
+            this.parArchivo.escribirArchivo();
+        }else{
+            JOptionPane.showMessageDialog(this.jdParada, "Debe Ingresar un nombre");
+        }
+    }//GEN-LAST:event_btnCrearParadaMouseClicked
+
+    private void btnCrearAutobusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearAutobusMouseClicked
+        if (!this.txtPllaca.getText().equals("")) {
+            Autobus a = new Autobus(Integer.parseInt(this.spnId.getValue().toString()), this.txtPllaca.getText(), Double.parseDouble(this.spnVelocidad.getValue().toString()), this.btnColor.getBackground());
+            autobuses.add(a);
+            cargarAutobuses();
+            this.autArchivo.setListaAutobus(autobuses);
+            this.autArchivo.escribirArchivo();
+        }else{
+            JOptionPane.showMessageDialog(this.jdParada, "Debe Ingresar una Placa");
+        }
+    }//GEN-LAST:event_btnCrearAutobusMouseClicked
+
+    private void btnCrearEstudianteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearEstudianteMouseClicked
+        if (!this.txtNombreE.getText().equals("") || this.lstParadas.getSelectedIndex() == -1) {
+            this.estaciones = (DefaultListModel) this.lstParadas.getModel();
+            Parada p = ((Parada)estaciones.get(this.lstParadas.getSelectedIndex()));
+            Estudiante e = new Estudiante(this.txtNombreE.getText(), Integer.parseInt(this.spnEdad.getValue().toString()),
+            Integer.parseInt(this.spnCuenta.getValue().toString()), p);
+            estudiantes.add(e);
+            cargarEstudiantes();
+            this.estArchivo.setListaEstudiante(estudiantes);
+            this.estArchivo.escribirArchivo();
+        }else{
+            JOptionPane.showMessageDialog(this.jdParada, "Debe Ingresar una Placa o Seleccionar una parada");
+        }
+    }//GEN-LAST:event_btnCrearEstudianteMouseClicked
+
+    private void itmAgregarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmAgregarEActionPerformed
+        if (this.paradas.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe Ingresar Paradas Primero");
+        }else{
+            this.jdEstudiante.setModal(true); 
+            this.jdEstudiante.pack();
+            this.jdEstudiante.setLocationRelativeTo(this);
+            this.jdEstudiante.setVisible(true);
+        }
+    }//GEN-LAST:event_itmAgregarEActionPerformed
+
+    private void itmAgregarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmAgregarAActionPerformed
+        this.jdAutoBus.setModal(true);
+        this.jdAutoBus.pack();
+        this.jdAutoBus.setLocationRelativeTo(this);
+        this.jdAutoBus.setVisible(true);
+    }//GEN-LAST:event_itmAgregarAActionPerformed
+
+    private void itmAgregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmAgregarPActionPerformed
+        this.jdParada.setModal(true);
+        this.jdParada.pack();
+        this.jdParada.setLocationRelativeTo(this);
+        this.jdParada.setVisible(true);
+    }//GEN-LAST:event_itmAgregarPActionPerformed
+
+    private void btnAgregarEstudianteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarEstudianteMouseClicked
+        BusActual = (Autobus) this.cmbAutobuses.getSelectedItem();
+        this.alumnosEnAutoBus = (DefaultListModel) this.lstAlumnosEnAutobuses.getModel();
+        Estudiante p = ((Estudiante)alumnos.get(this.lstAlumnos.getSelectedIndex()));
+        
+        for (int i = 0; i < alumnosEnAutoBus.getSize(); i++) {
+            if (((Estudiante)alumnosEnAutoBus.get(i)).getCuenta() == p.getCuenta()) {
+                return;
+            }
+        }
+        BusActual.setPasajero(p);
+        alumnosEnAutoBus.addElement(p);
+        this.lstAlumnosEnAutobuses.setModel(alumnosEnAutoBus);
+    }//GEN-LAST:event_btnAgregarEstudianteMouseClicked
+
+    private void cmbAutobusesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbAutobusesItemStateChanged
+        this.BusActual = (Autobus) this.cmbAutobuses.getSelectedItem();
+        this.cargarAlumnosParadas(BusActual);
+    }//GEN-LAST:event_cmbAutobusesItemStateChanged
+
+    private void btnIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarMouseClicked
+        this.alumnosEnAutoBus = (DefaultListModel) this.lstAlumnosEnAutobuses.getModel();
+        if (!alumnosEnAutoBus.isEmpty()) {
+            this.hilo = new adminViaje(pgrViajes, tblBitacora, tabla, BusActual, 0, 0);
+            
+        }
+
+    }//GEN-LAST:event_btnIniciarMouseClicked
+
+    public void cargarAlumnosParadas(Autobus a){
+        this.alumnosEnAutoBus = new DefaultListModel();
+        System.out.println("Aqui si");
+        for (int i = 0; i < a.getPasajeros().size(); i++) {
+            System.out.println("Holis");
+            alumnosEnAutoBus.addElement(paradas.get(i));
+        }
+        this.lstAlumnosEnAutobuses.setModel(alumnosEnAutoBus);
+    }
+    
+    public void cargarParadas(){
+        this.estaciones = new DefaultListModel();
+        for (int i = 0; i < paradas.size(); i++) {
+            estaciones.addElement(paradas.get(i));
+        }
+        this.lstParadas.setModel(estaciones);
+    }
+    
+    public void cargarEstudiantes(){
+        this.alumnos = new DefaultListModel();
+        for (int i = 0; i < estudiantes.size(); i++) {
+            alumnos.addElement(estudiantes.get(i));
+        }
+        this.lstAlumnos.setModel(alumnos);
+    }
+    
+    public void cargarAutobuses(){
+        this.buses = new DefaultComboBoxModel();
+        for (int i = 0; i < autobuses.size(); i++) {
+            buses.addElement(autobuses.get(i));
+        }
+        this.cmbAutobuses.setModel(buses);
+    }
+    
+    
+        
     /**
      * @param args the command line arguments
      */
@@ -127,17 +683,73 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarEstudiante;
+    private javax.swing.JButton btnColor;
+    private javax.swing.JButton btnCrearAutobus;
+    private javax.swing.JButton btnCrearEstudiante;
+    private javax.swing.JButton btnCrearParada;
+    private javax.swing.JButton btnDetener;
+    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnPausar;
+    private javax.swing.JComboBox<String> cmbAutobuses;
+    private javax.swing.JMenuItem itmAgregarA;
+    private javax.swing.JMenuItem itmAgregarE;
+    private javax.swing.JMenuItem itmAgregarP;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JDialog jdAutoBus;
+    private javax.swing.JDialog jdEstudiante;
+    private javax.swing.JDialog jdParada;
+    private javax.swing.JLabel lblTiempo;
+    private javax.swing.JList<String> lstAlumnos;
+    private javax.swing.JList<String> lstAlumnosEnAutobuses;
+    private javax.swing.JList<String> lstParadas;
+    private javax.swing.JProgressBar pgrViajes;
+    private javax.swing.JSpinner spnAngulo;
+    private javax.swing.JSpinner spnCuenta;
+    private javax.swing.JSpinner spnDistancia;
+    private javax.swing.JSpinner spnEdad;
+    private javax.swing.JSpinner spnId;
+    private javax.swing.JSpinner spnVelocidad;
+    private javax.swing.JTable tblBitacora;
+    private javax.swing.JTextField txtNombreE;
+    private javax.swing.JTextField txtNombreParada;
+    private javax.swing.JTextField txtPllaca;
     // End of variables declaration//GEN-END:variables
-    ArrayList<Estudiante> estudiantes = new ArrayList<>();
-    ArrayList<Parada> paradas = new ArrayList<>();
-    ArrayList<Autobus> autobuses = new ArrayList<>();
-
+    private ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    private ArrayList<Parada> paradas = new ArrayList<>();
+    private ArrayList<Autobus> autobuses = new ArrayList<>();
+    private final String[] archivos = {"Estudiantes.raffls", "Autobuses.raffls", "Paradas.raffls"};
+    private DefaultTableModel tabla;
+    private DefaultListModel alumnos, estaciones, alumnosEnAutoBus;
+    private DefaultComboBoxModel buses;
+    private Autobus BusActual;
+    private adminEstudiante estArchivo = new adminEstudiante(archivos[0]);
+    private adminAutobus autArchivo = new adminAutobus(archivos[1]);
+    private adminParada parArchivo = new adminParada(archivos[2]);
+    private adminViaje hilo = null;
+    
 }

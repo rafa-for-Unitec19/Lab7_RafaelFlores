@@ -22,6 +22,8 @@ public class Parada implements Serializable{
         this.nombre = nombre;
         this.distancia = distancia;
         this.angulo = angulo;
+        this.cordX = distancia * Math.cos(angulo);
+        this.cordY = distancia * Math.sin(angulo);
     }
 
     public void setNombre(String nombre) {
@@ -30,10 +32,14 @@ public class Parada implements Serializable{
 
     public void setDistancia(double distancia) {
         this.distancia = distancia;
+        this.cordX = distancia * Math.cos(angulo);
+        this.cordY = distancia * Math.sin(angulo);
     }
 
     public void setAngulo(double angulo) {
         this.angulo = angulo;
+        this.cordX = distancia * Math.cos(angulo);
+        this.cordY = distancia * Math.sin(angulo);
     }
 
     public void setCordX(double cordX) {
@@ -67,6 +73,10 @@ public class Parada implements Serializable{
     @Override
     public String toString() {
         return nombre;
+    }
+    
+    public double getDistanciacordenada(int cordX, int cordY){
+        return Math.sqrt(    (   Math.pow((this.getCordX() - cordX), 2)  + Math.pow((this.getCordY() - cordY), 2)     )    );
     }
     
     
